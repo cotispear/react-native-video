@@ -416,7 +416,9 @@ class ReactExoplayerView extends FrameLayout implements
                 return new HlsMediaSource(uri, mediaDataSourceFactory, 
                         minLoadRetryCount, mainHandler, null);
             case C.TYPE_OTHER:
-                return new ExtractorMediaSource(uri, mediaDataSourceFactory, new DefaultExtractorsFactory(),
+                DefaultExtractorsFactory factory = new DefaultExtractorsFactory();
+                extractorsFactory.setTsExtractorFlags(DefaultTsPayloadReaderFactory.FLAG_ALLOW_NON_IDR_KEYFRAMES);
+                return new ExtractorMediaSource(uri, mediaDataSourceFactory, factory,
                         mainHandler, null);
             default: {
                 throw new IllegalStateException("Unsupported type: " + type);
