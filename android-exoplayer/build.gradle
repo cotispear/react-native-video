@@ -23,5 +23,5 @@ dependencies {
     compile('com.google.android.exoplayer:extension-okhttp:2.7.3') {
         exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     }
-    compile 'com.squareup.okhttp3:okhttp:3.9.1'
+    compile 'com.squareup.okhttp3:okhttp:3.12.1'
 }
