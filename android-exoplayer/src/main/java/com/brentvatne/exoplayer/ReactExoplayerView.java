@@ -418,6 +418,7 @@ class ReactExoplayerView extends FrameLayout implements
                         minLoadRetryCount, mainHandler, null);
             case C.TYPE_OTHER:
                 DefaultExtractorsFactory factory = new DefaultExtractorsFactory();
+                factory.setTsExtractorFlags(DefaultTsPayloadReaderFactory.FLAG_DETECT_ACCESS_UNITS);
                 factory.setTsExtractorFlags(DefaultTsPayloadReaderFactory.FLAG_ALLOW_NON_IDR_KEYFRAMES);
                 return new ExtractorMediaSource(uri, mediaDataSourceFactory, factory,
                         mainHandler, null);
